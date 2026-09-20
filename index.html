@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nihitha | AI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+nav a{color:#38bdf8;margin:0 10px;text-decoration:none}
+nav a:hover{color:#fff}
+
+/* HERO */
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:120px 10%;
+min-height:100vh;
+}
+
+.hero-text{max-width:600px;}
+
+.hero h1{font-size:3rem;color:#38bdf8;}
+
+.typing{color:#6366f1;font-weight:bold;}
+
+.hero p{color:#94a3b8;margin:15px 0;}
+
+.hero img{
+width:450px;
+border-radius:20px;
+box-shadow:0 0 40px #38bdf8;
+animation:float 5s infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+margin:10px 10px 0 0;
+padding:10px 20px;
+background:#38bdf8;
+color:#000;
+border-radius:20px;
+text-decoration:none;
+cursor:pointer;
+}
+.btn:hover{background:#6366f1;color:#fff}
+
+/* PROJECT */
+.project{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+margin-bottom:30px;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+#contact {
+scroll-margin-top: 100px;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+.modal-box{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+max-width:600px;
+width:90%;
+max-height:80vh;
+overflow:auto;
+}
+
+/* BOT */
+.bot{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#38bdf8;
+padding:12px;
+border-radius:50%;
+cursor:pointer;
+}
+
+/* CHATBOX */
+.chatbox{
+display:none;
+position:fixed;
+bottom:80px;
+right:20px;
+background:#0f172a;
+padding:15px;
+border-radius:10px;
+width:200px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>Nihitha</b></div>
+<div>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-text">
+<h1>Hi, I'm T.Nihitha 👋</h1>
+<p class="typing"></p>
+
+<p>
+I am a passionate Computer Science student specializing in Artificial Intelligence, Machine Learning, and Computer Vision.
+</p>
+
+<a href="resume.pdf" class="btn" target="_blank">Resume</a>
+<a href="https://github.com/NIHITHATHULASIMUTHU" class="btn">GitHub</a>
+<a href="https://www.linkedin.com/in/nihitha-thulasimuthu" class="btn">LinkedIn</a>
+<p>Email: nihitha0426@gmail.com</p>
+</div>
+
+
+<img src="profile.jpeg">
+</div>
+
+<<!-- CENTER WRAPPER -->
+<div style="display:flex; justify-content:center; width:100%;">
+
+  <div style="max-width:650px; width:100%; text-align:center;">
+
+    <!-- 🔵 BIG GLOW BUTTON -->
+    <button onclick="toggleAbout()" style="
+    padding:14px 30px;
+    font-size:18px;
+    font-weight:600;
+    background:linear-gradient(135deg,#38bdf8,#6366f1);
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:0 0 15px #38bdf8, 0 0 30px #38bdf8;
+    transition:0.3s;
+    ">
+    ✨ About Me
+    </button>
+
+    <!-- ABOUT CONTENT -->
+    <div id="aboutMe" style="
+    max-height:0;
+    overflow:hidden;
+    transition:0.5s ease;
+    background:#0f172a;
+    margin-top:20px;
+    padding:0 20px;
+    border-radius:15px;
+    color:#94a3b8;
+    text-align:left;
+    box-shadow:0 0 20px rgba(56,189,248,0.2);
+    ">
+
+    <p>
+    I am a passionate Computer Science student specializing in Artificial Intelligence, Machine Learning, and Computer Vision. I enjoy building intelligent systems that solve real-world problems and create meaningful impact. My primary interest lies in developing data-driven solutions that improve decision-making and user experience.
+
+    I have worked on projects such as a Crop Recommendation System, which uses machine learning algorithms to assist farmers in selecting optimal crops based on environmental conditions, and a Career Guidance AI system that helps individuals make informed career decisions using data analysis and NLP techniques.
+
+    Additionally, I have explored technologies like Optical Character Recognition (OCR) and Text-to-Speech systems to enhance accessibility and usability. I am skilled in Python, Machine Learning, OpenCV, NLP, and data analysis tools.
+
+    I continuously strive to learn new technologies and improve my problem-solving abilities. I am particularly interested in applying AI to real-world domains such as agriculture, education, and assistive technology.
+
+    I am currently seeking opportunities where I can apply my skills, contribute to impactful projects, and grow as an AI/ML professional.
+    </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function toggleAbout(){
+let box=document.getElementById("aboutMe");
+
+if(box.style.maxHeight==="0px" || box.style.maxHeight===""){
+box.style.maxHeight="600px";
+box.style.padding="20px";
+}else{
+box.style.maxHeight="0";
+box.style.padding="0 20px";
+}
+}
+</script>
+<!-- PROJECTS -->
+<section id="projects" style="padding:80px 10%;">
+
+<h2 style="text-align:center;color:#38bdf8;">Projects</h2>
+
+<div style="
+display:grid;
+grid-template-columns: repeat(3, 1fr);
+gap:30px;
+margin-top:40px;
+">
+
+  <!-- BOX 1 -->
+  <div style="
+  background:#0f172a;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+  transition:0.3s;
+  ">
+    <h3 style="color:#38bdf8;">🌾 Crop Recommendation</h3>
+    <ul style="color:#94a3b8; padding-left:20px;">
+      <p><b>Problem:</b> Farmers struggle to choose crops.</p>
+<p><b>Solution:</b> ML predicts best crop using GPS location.</p>
+<p><b>Tech:</b> Python, ML, Pandas</p>
+<p><b>Users:</b> Farmers & City people who loves farming</p>
+
+      <button class="btn" onclick="openModal('crop')">View More Details</button>
+    </ul>
+  </div>
+
+  <!-- BOX 2 -->
+  <div style="
+  background:#0f172a;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+  transition:0.3s;
+  ">
+    <h3 style="color:#38bdf8;">🎯 Career Guidance AI</h3>
+    <ul style="color:#94a3b8; padding-left:20px;">
+      <p><b>Problem:</b> Students lack guidance.</p>
+<p><b>Solution:</b> AI suggests careers.</p>
+<p><b>Tech:</b> NLP, ML</p>
+<p><b>Users:</b> Students</p>
+<button class="btn" onclick="openModal('career')">View More Details</button>
+
+    </ul>
+  </div>
+  <!-- BOX 3 -->
+   <div style="
+  background:#0f172a;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+  transition:0.3s;
+  ">
+  
+  <h3 style="color:#38bdf8;">📄 Resume Checker</h3>
+  
+  <ul style="color:#94a3b8; padding-left:20px;">
+    
+    <p><b>Problem:</b> Users struggle to create effective resumes.</p>
+    
+    <p><b>Solution:</b> System analyzes resumes and provides improvement suggestions.</p>
+    
+    <p><b>Tech:</b> HTML, CSS, JavaScript</p>
+    
+    <p><b>Users:</b> Students, Job Seekers</p>
+    
+    <button class="btn" onclick="openModal('resume')">View More Details</button>
+
+  </ul>
+
+</div>
+
+  
+  
+
+  <!-- BOX 4 -->
+  <div style="
+  background:#0f172a;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+  transition:0.3s;
+  ">
+    <h3 style="color:#38bdf8;">📝 OCR + TTS</h3>
+    <ul style="color:#94a3b8; padding-left:20px;">
+      <h3>📝 OCR + TTS</h3>
+<p>Image → Text → Speech</p>
+<button class="btn" onclick="openModal('ocr')">View More Details</button>
+
+    </ul>
+  </div>
+
+</div>
+
+</section>
+<section id="contact" style="
+padding:120px 10%;
+text-align:center;
+">
+
+<h2 style="color:#38bdf8;">Contact Me</h2>
+
+<div style="
+background:#0f172a;
+padding:30px;
+border-radius:15px;
+max-width:500px;
+margin:30px auto;
+box-shadow:0 0 20px rgba(56,189,248,0.3);
+">
+
+<p><b>Email:</b> nihitha0426@gmail.com</p>
+<p><b>Phone:</b> +91 9962328881</p>
+
+<a href="mailto:nihitha0426@gmail.com" class="btn">Send Email</a>
+
+</div>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-box">
+<span onclick="closeModal()" style="cursor:pointer">❌</span>
+<div id="modalContent"></div>
+</div>
+</div>
+
+<!-- CHATBOT -->
+<div class="bot" onclick="toggleChat()">🤖</div>
+
+<div class="chatbox" id="chatbox">
+<p>Hi 👋</p>
+<button class="btn" onclick="window.open('resume.pdf')">Resume</button>
+<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">Projects</button>
+<button class="btn" onclick="alert('Email: nihitha0426@gmail.com')">Contact</button>
+</div>
+
+<script>
+
+/* typing FIX */
+const words=["AI Engineer","ML Developer","Tech Enthusiast","Python Programmer","Computer Vision Developer"];
+let i=0,j=0,del=false,txt="";
+
+function type(){
+let current=words[i];
+txt=del?current.substring(0,--j):current.substring(0,++j);
+document.querySelector(".typing").innerHTML=txt;
+
+if(!del && j==current.length) del=true;
+else if(del && j==0){del=false;i=(i+1)%words.length;}
+
+setTimeout(type,del?50:100);
+}
+type();
+
+/* modal */
+function openModal(type){
+let data="";
+
+if(type==="crop"){
+data=`<h2>Crop Recommendation</h2>
+<p>
+The Crop Recommendation System is an advanced Machine Learning-based solution designed to assist farmers in selecting the most suitable crops based on environmental and soil conditions. Agriculture plays a critical role in many economies, and incorrect crop selection can lead to poor yield, financial losses, and inefficient resource usage. This project aims to solve that problem by using data-driven decision-making.
+<br>
+<br>
+The system analyzes key parameters such as soil nutrients (Nitrogen, Phosphorus, Potassium), temperature, humidity, pH value, and rainfall. Using these inputs, the model predicts the most optimal crop that can be grown under the given conditions. Machine Learning algorithms such as Random Forest and Decision Trees are used to ensure accurate predictions.
+
+This solution is particularly useful for farmers, agricultural researchers, and agri-tech companies. It helps improve productivity, optimize resource usage, and reduce uncertainty in farming decisions. The system can also be extended into a web or mobile application, allowing real-time recommendations.
+<br>
+<br>
+Technologies used include Python, Scikit-learn, Pandas, and basic web technologies. The model is trained on agricultural datasets and tested for accuracy and reliability.
+
+Overall, this project demonstrates the power of AI in agriculture and showcases how technology can support sustainable farming practices and improve food production efficiency.
+</p>
+<a href="https://smart-land-system.lovable.app/" target="_blank" class="btn">View Project</a>`;
+}
+
+if(type==="career"){
+data=`<h2>Career Guidance AI</h2>
+<p>
+The Career Guidance AI system is designed to help students and individuals choose the right career path based on their interests, skills, and preferences. Many students struggle with career decisions due to lack of proper guidance and awareness. This project aims to bridge that gap using Artificial Intelligence.
+<br>
+<br>
+The system collects user input such as interests, academic background, and skill levels. It then uses Natural Language Processing (NLP) and Machine Learning techniques to analyze the data and recommend suitable career paths. The model is trained to understand patterns and map them to relevant career options.
+
+This solution can be used by students, job seekers, and educational institutions. It provides personalized recommendations, helping users make informed decisions about their future. It can also be integrated into career counseling platforms or educational websites.
+<br>
+<br>
+Technologies used include Python, NLP libraries, and Machine Learning models. The system focuses on providing accurate and meaningful suggestions to users.
+
+The project highlights how AI can be used in education and career planning, making guidance accessible and data-driven. It reduces confusion and empowers users to take confident steps toward their goals.
+</p>
+<a href="https://chef.show/dfb322" target="_blank" class="btn">Try Project</a>`;
+}
+
+if(type==="resume"){
+data=`<h2>Resume Checker</h2>
+<p>
+The Resume Checker is a web-based application designed to analyze and evaluate resumes based on structure, content quality, and keyword relevance. Many job seekers face challenges in creating effective resumes that meet industry standards and pass Applicant Tracking Systems (ATS). This project aims to simplify that process by providing intelligent feedback using automated analysis.
+
+<br><br>
+
+The system allows users to input or upload resume content, which is then processed to identify formatting issues, missing sections, and keyword gaps. It evaluates the resume against common hiring criteria and provides suggestions to improve clarity, impact, and professionalism.
+
+
+
+This solution is useful for students, fresh graduates, and job seekers who want to enhance their resumes and increase their chances of getting shortlisted. It acts as a virtual assistant for resume improvement and career preparation.
+
+<br><br>
+
+Technologies used include HTML, CSS, JavaScript, and basic text processing techniques. The system focuses on delivering quick, user-friendly, and practical feedback.
+
+
+
+Overall, this project demonstrates how technology can be used to support career development by helping users create strong and effective resumes.
+</p>
+<a href="https://nihithathulasimuthu.github.io/Resume-checker/" target="_blank" class="btn">View Project</a>`;
+}
+
+if(type==="ocr"){
+data=`<h2>OCR + TTS</h2>
+<p>
+The Text-to-Speech and Optical Character Recognition (OCR) System is an intelligent application designed to extract textual information from images and convert it into natural-sounding speech. This project combines the capabilities of computer vision and speech synthesis to create an accessible and user-friendly solution.
+<br>
+<br>
+The system allows users to upload an image containing printed or handwritten text. Using OCR technology, the text is accurately detected and extracted. This extracted text is then processed using a Text-to-Speech engine, which converts it into clear and understandable audio output.
+
+This solution is highly beneficial for visually impaired individuals, students, and professionals who need quick access to textual content in audio form. It also supports document digitization and automation workflows in various industries.
+<br>
+<br>
+The project is developed using Python, OpenCV, Tesseract OCR, and speech synthesis libraries. It demonstrates the integration of AI technologies to improve accessibility, efficiency, and user experience in real-world applications.
+</p>
+<button class="btn" onclick="playAudio()">Play</button>
+<button class="btn" onclick="stopAudio()">Stop</button>`;
+}
+
+document.getElementById("modalContent").innerHTML=data;
+document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* audio */
+function playAudio(){
+let speech=new SpeechSynthesisUtterance("This system converts image text to speech");
+speech.lang="en-US";
+window.speechSynthesis.speak(speech);
+}
+function stopAudio(){
+window.speechSynthesis.cancel();
+}
+
+
+/* chatbot */
+function toggleChat(){
+let box=document.getElementById("chatbox");
+box.style.display=box.style.display==="block"?"none":"block";
+}
+
+function contact(){
+alert("Email: nihitha0426@gmail.com");
+}
+
+
+
+</script>
+
+</body>
+</html>
